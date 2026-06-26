@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+.env
+
+frontend/node_modules/
+frontend/.angular/
+frontend/dist/
+archive/
+chunker_test.py

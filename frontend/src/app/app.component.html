@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div class="title-row">
+
+    <h1>AI Search Assistant</h1>
+
+    <app-flame></app-flame>
+
+  </div>
+
+  <app-search-box
+    (searchClicked)="onSearch($event)">
+  </app-search-box>
+
+  @if(loading){
+
+    <p>Searching...</p>
+
+  }
+
+  <app-answer-box
+    [answer]="answer">
+  </app-answer-box>
+
+  <app-source-list
+    [sources]="sources">
+  </app-source-list>
+
+</div>

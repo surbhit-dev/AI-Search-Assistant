@@ -1,50 +1,140 @@
-# AI Search Assistant
+# 🔥 AI Search Assistant
 
 An AI-powered search engine that searches the web, extracts relevant content, ranks information, and generates concise answers using Google's Gemini model.
 
-## Overview
+## Project Overview
 
-AI Search Assistant combines web search, content extraction, intelligent ranking, and Large Language Models (LLMs) to provide direct answers from web content instead of simply returning links.
+Traditional search engines return links.
 
-The project was built to explore the architecture behind modern AI search systems and retrieval-augmented generation (RAG) workflows.
+AI Search Assistant goes one step further by retrieving web content, processing it, identifying the most relevant information, and generating a direct answer for the user.
+
+The project was built to understand how modern AI search systems and Retrieval-Augmented Generation (RAG) architectures work behind the scenes.
+
+---
+
+## Demo Workflow
+
+```text
+User Query
+    ↓
+DuckDuckGo Search
+    ↓
+URL Discovery
+    ↓
+Content Extraction
+    ↓
+Text Chunking
+    ↓
+Relevance Ranking
+    ↓
+Gemini AI
+    ↓
+Final Answer + Sources
+```
+
+---
+
+## System Architecture
+
+```text
+┌─────────────────────┐
+│ Angular Frontend    │
+└──────────┬──────────┘
+           │ HTTP Request
+           ▼
+┌─────────────────────┐
+│ FastAPI Backend     │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ DuckDuckGo Search   │
+└──────────┬──────────┘
+           │ URLs
+           ▼
+┌─────────────────────┐
+│ Content Extractor   │
+└──────────┬──────────┘
+           │ Raw Text
+           ▼
+┌─────────────────────┐
+│ Chunker             │
+└──────────┬──────────┘
+           │ Chunks
+           ▼
+┌─────────────────────┐
+│ Ranker              │
+└──────────┬──────────┘
+           │ Best Chunks
+           ▼
+┌─────────────────────┐
+│ Gemini AI           │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Final Answer        │
+└─────────────────────┘
+```
+
+---
+
+## Data Flow
+
+```text
+Question:
+"What is Retrieval-Augmented Generation?"
+
+↓
+
+Search Engine finds relevant pages
+
+↓
+
+Web pages are downloaded
+
+↓
+
+Content is extracted and cleaned
+
+↓
+
+Text is divided into chunks
+
+↓
+
+Chunks are scored for relevance
+
+↓
+
+Highest scoring chunks are selected
+
+↓
+
+Gemini generates an answer
+
+↓
+
+Answer is displayed in Angular UI
+```
+
+---
 
 ## Features
 
-* Web search using DuckDuckGo
-* Automatic webpage content extraction
-* Content chunking for efficient processing
-* Relevance-based chunk ranking
-* AI-generated answers using Gemini
-* Angular frontend interface
-* Source tracking and display
+* Web search integration
+* Content extraction from webpages
+* Content chunking
+* Relevance-based ranking
+* AI answer generation
+* Angular frontend
 * FastAPI backend
+* Source display
+* Gemini integration
 
-## Architecture
-
-User Query
-↓
-DuckDuckGo Search
-↓
-Content Extraction
-↓
-Content Chunking
-↓
-Chunk Ranking
-↓
-Gemini AI
-↓
-Answer + Sources
+---
 
 ## Tech Stack
-
-### Backend
-
-* Python
-* FastAPI
-* DuckDuckGo Search (DDGS)
-* BeautifulSoup
-* Requests
-* Google Gemini API
 
 ### Frontend
 
@@ -52,6 +142,24 @@ Answer + Sources
 * TypeScript
 * HTML
 * CSS
+
+### Backend
+
+* Python
+* FastAPI
+* Requests
+* BeautifulSoup
+* DuckDuckGo Search
+
+### AI
+
+* Google Gemini
+
+### Utilities
+
+* Python Dotenv
+
+---
 
 ## Project Structure
 
@@ -67,13 +175,17 @@ AI-Search-Assistant
 │   └── search_pipeline.py
 │
 ├── frontend
+│   ├── src
 │   └── Angular Application
 │
 ├── api.py
 ├── app.py
 ├── config.py
+├── requirements.txt
 └── README.md
 ```
+
+---
 
 ## Installation
 
@@ -96,7 +208,7 @@ Create a `.env` file:
 GEMINI_API_KEY=your_api_key_here
 ```
 
-Run the backend:
+Run backend:
 
 ```bash
 python api.py
@@ -116,42 +228,77 @@ Open:
 http://localhost:4200
 ```
 
-## Learning Goals
+---
 
-This project was created to understand:
+## Learning Objectives
 
-* Search engine pipelines
-* Information retrieval
-* Content extraction
+This project was created to gain hands-on experience with:
+
+* Search engine architecture
+* Information retrieval systems
+* Content extraction pipelines
 * Retrieval-Augmented Generation (RAG)
 * LLM integration
-* Full-stack AI application development
+* Full-stack AI applications
+* Angular and FastAPI integration
 
-## Current Status
+---
 
-Current pipeline:
+## Current Pipeline
+
+Implemented:
 
 * Search
-* Extract
-* Chunk
-* Rank
-* Generate Answer
+* Extraction
+* Chunking
+* Ranking
+* AI Answer Generation
+* Source Display
 
-The project is actively being improved with UI enhancements, source attribution improvements, and additional search capabilities.
+---
 
 ## Future Improvements
 
-* Better source citations
-* Improved ranking algorithms
+* Better citation support
 * Multi-source answer synthesis
-* Advanced UI design
 * Streaming responses
+* Improved ranking algorithms
 * Search history
-* User authentication
+* Authentication
 * Vector database integration
+* Advanced UI and animations
+* Source credibility scoring
+
+---
+
+## Interview Discussion Topics
+
+This project demonstrates:
+
+### Information Retrieval
+
+How search engines discover and process information.
+
+### Ranking Systems
+
+How relevant content is selected from large amounts of text.
+
+### Retrieval-Augmented Generation (RAG)
+
+Combining external knowledge sources with LLMs.
+
+### Full Stack Development
+
+Building and integrating frontend, backend, and AI services.
+
+### AI Engineering
+
+Prompt design, context selection, and answer generation.
+
+---
 
 ## Author
 
-Surbhit Srivas
+**Surbhit dev**
 
-Built as a learning project exploring modern AI search architectures.
+AI Search Assistant was built as a learning project to understand the architecture behind modern AI-powered search systems.
